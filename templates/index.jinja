@@ -1,0 +1,54 @@
+{% extends 'base.jinja' %}
+
+
+{% block content %}
+
+    <section class="columns">
+        <div>
+            <form class="add_destination" action="/destinations/add" method="post">
+                <select name="user_id">
+                    {% for user in users %}
+                        <option value="{{ user.id }}">{{ user.username }}</option>
+                    {% endfor %}
+                </select>
+                <label for="country">Country</label>
+                <input type="text" name="country" id="country">
+                <label for="city">City</label>
+                <input type="text" name="city" id="city">
+                <label for="date">Date</label>
+                <input type="text" name="date" id="date">
+                <button type="submit">Add destination</button>
+            </form>
+            <form class="add_user" action="/destinations/add/user" method="post">
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username">
+                <label for="nationality">Nationality</label>
+                <input type="text" name="nationality" id="nationality">
+                <button type="submit">Add User</button>
+                <img class="Zanzibar" src="/static/Zanzibar.jpg">
+            </form>
+        </div>
+        
+        
+        
+        <div class="destinations">
+            <h2 class="destinations_header">Find out more!</h2>
+            {% for destination in destinations %}
+                    <ul>
+                    <li><a href="/destinations/{{ destination.id }}">
+                        <p class="destinations">{{ destination.users.username }}, {{ destination.country }}, {{ destination.date }}</p>
+                            <input type="checkbox" name="destination" id="destination">
+                            <button type="submit">To do</button>
+                            <input type="checkbox" name="destination" id="destination">
+                            <button type="submit">Done</button>
+                    </a></li>
+                    
+                    
+
+                    </ul>
+            {% endfor %}
+        </div>
+    </section>
+
+
+{% endblock content %}

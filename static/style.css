@@ -1,0 +1,82 @@
+* {
+    margin: 0;
+    padding: 0;
+    background-color: blanchedalmond;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.navbar {
+    display: flex;
+    background-color: bisque;
+    justify-content: space-around;
+    padding: 30px;
+}
+
+.links {
+    list-style-type: none;
+}
+
+h3 {
+    color: brown;
+}
+
+.columns {
+    display: flex;
+    gap: 50px;
+    padding: 10px;
+    margin: 10px;
+    /* justify-content: left; */
+}
+
+.add_destination {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    padding: 20px;
+    align-items: center;
+    
+    
+}
+
+.destinations {
+    
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    margin: 10px;
+}
+
+.destinations_header {
+    margin-bottom: 20px;
+    padding: 10px;
+    margin: 10px;
+    align-items: center;
+    
+}
+.Zanzibar {
+    max-height: 400px ;
+    width: 400px; 
+    margin: 30px;
+    padding: 10px;
+    justify-content: center;
+    
+}
+.add_user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    padding: 20px;
+}
+
+.destination.jinja {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    padding: 20px;
+}

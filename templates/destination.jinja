@@ -1,0 +1,15 @@
+{% extends 'base.jinja' %}
+
+{% block content %}
+    
+    <p>Destination id: {{ destination.id }}</p>
+    <p>Country: {{ destination.country }}</p>
+    <p>City: {{ destination.city }}</p>
+    <p>Date: {{ destination.date }}</p>
+    <p>Username: {{ user.username }}</p>
+    <button><a href="/destinations/{{ destination.id }}/update">Update details</a></button>
+    <form action="/destinations/{{ destination.id }}/delete" method="POST">
+    <button type="submit">Delete</button>
+    </form>
+    
+{% endblock content %}
