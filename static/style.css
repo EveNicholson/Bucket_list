@@ -13,20 +13,12 @@ a {
     display: flex;
     background-color: bisque;
     justify-content: space-around;
-    padding: 30px;
-}
-
-.links {
-    list-style-type: none;
-}
-
-h3 {
-    color: brown;
+    padding: 20px;
 }
 
 .columns {
     display: flex;
-    gap: 50px;
+    gap: 150px;
     padding: 10px;
     margin: 10px;
     /* justify-content: left; */
@@ -35,8 +27,8 @@ h3 {
 .add_destination {
     display: flex;
     flex-direction: column;
-    margin: 20px;
-    padding: 20px;
+    margin: 10px;
+    padding: 10px;
     align-items: center;
     
     
@@ -46,8 +38,8 @@ h3 {
     
     flex-direction: column;
     align-items: center;
-    padding: 10px;
-    margin: 10px;
+    padding: 6px;
+    margin: 6px;
 }
 
 .destinations_header {
@@ -60,7 +52,7 @@ h3 {
 .Zanzibar {
     max-height: 400px ;
     width: 400px; 
-    margin: 30px;
+    margin: 10px;
     padding: 10px;
     justify-content: center;
     
@@ -69,8 +61,8 @@ h3 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 20px;
-    padding: 20px;
+    margin: 30px;
+    padding: 30px;
 }
 
 .destination.jinja {
@@ -79,4 +71,27 @@ h3 {
     align-items: center;
     margin: 20px;
     padding: 20px;
+}
+.button {
+    background-color: rgb(249, 215, 161);
+    border-radius: 5px;
+    color: black;    
+}
+
+.button1 {
+    background-color: rgb(249, 215, 161);
+    border-radius: 5px;
+    color: black;    
+}
+
+.button2 {
+    background-color: rgb(249, 215, 161);
+    border-radius: 5px;
+    color: black;    
+}
+
+.button3 {
+    background-color: rgb(249, 215, 161);
+    border-radius: 5px;
+    color: black;    
 }
