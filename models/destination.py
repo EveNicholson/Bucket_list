@@ -9,3 +9,4 @@ class Destination(db.Model):
     city = db.Column(db.String(20))
     date = db.Column(db.String(30))
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    

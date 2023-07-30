@@ -1,15 +1,76 @@
 {% extends 'base.jinja' %}
 
 {% block content %}
+    <div class="all">
+   <div class="details">
+        <br>
+         <p>Username: {{ user.username }}</p>
+        <br>
+        <p>Country: {{ destination.country }}</p>
+        <br>
+        <p>City: {{ destination.city }}</p>
+        <br>
+        <p>Date: {{ destination.date }}</p>
+        <br>
+            <button><a class="button4" href="/destinations/{{ destination.id }}/update">Update details</a></button>
+                <form action="/destinations/{{ destination.id }}/delete" method="POST">
+        <br>
+            <button class="button5" type="submit">Delete</button>
+            </form>
+        <br>
+        <br>
+    </div>
+     
+    <div class = "memories">
+        <h3>Memories:</h3>
+   
+        {% for comment in comments %}
+        <div>{{ comment }}</div>
+        {% endfor %}
     
-    <p>Destination id: {{ destination.id }}</p>
-    <p>Country: {{ destination.country }}</p>
-    <p>City: {{ destination.city }}</p>
-    <p>Date: {{ destination.date }}</p>
-    <p>Username: {{ user.username }}</p>
-    <button><a href="/destinations/{{ destination.id }}/update">Update details</a></button>
-    <form action="/destinations/{{ destination.id }}/delete" method="POST">
-    <button type="submit">Delete</button>
+    <form method="POST" action="/add_comment">
+        <textarea name="content" rows="4" cols="40"></textarea>
+        <br>
+        <input class="button6"type="submit" value="Add Memories">
     </form>
-    
+    </div>
+    </div>
+    {# <body>
+    <h3>Upload Pictures:</h3>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+    <form method="POST" action="/upload" enctype="multipart/form-data">
+        <input type="file" name="picture" accept="image/*">
+        <input type="submit" value="Upload">
+    </form>
+</body> #}
+
+{# <!DOCTYPE html>
+<html>
+<head>
+    <title>Uploaded Pictures</title>
+</head>
+<body>
+    <h1>Uploaded Pictures</h1>
+    {% with pictures = get_uploaded_pictures() %}
+    {% if pictures %}
+    <div class="picture-gallery">
+        {% for picture in pictures %}
+        <img src="{{ url_for('static', filename='uploads/' + picture) }}" alt="Uploaded Picture">
+        {% endfor %}
+    </div>
+    {% else %}
+    <p>No pictures uploaded yet.</p>
+    {% endif %}
+    {% endwith %}
+</body>
+</html> #}
+
 {% endblock content %}

@@ -31,24 +31,24 @@
         
         
         
-        <div class="destinations">
+        <section class="destinations">
             <h2 class="destinations_header">Find out more!</h2>
-            <h4> Visited &#9971    Want to visit &#128159</h4>
+            <h4> Want to visit &#128140 Visited &#9971 </h4>
             {% for destination in destinations %}
                     <ul>
                     <li><a href="/destinations/{{ destination.id }}">
                         <p class="destinations">{{ destination.users.username }}, {{ destination.country }}, {{ destination.date }}</p>
                             <input type="checkbox" name="destination" id="destination">
-                            <button class="button2" type="submit">To do</button>
+                            <button class="button2" type="submit">&#128140</button>
                             <input type="checkbox" name="destination" id="destination">
-                            <button class="button3"type="submit">Done</button>
+                            <button class="button3"type="submit">&#9971</button>
                     </a></li>
                     
                     
 
                     </ul>
             {% endfor %}
-        </div>
+        </section>
     </section>
 
 

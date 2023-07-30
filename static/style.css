@@ -1,7 +1,7 @@
 * {
     margin: 0;
     padding: 0;
-    background-color: blanchedalmond;
+    background-color:rgb(239, 240, 248);
 }
 
 a {
@@ -11,7 +11,7 @@ a {
 
 .navbar {
     display: flex;
-    background-color: bisque;
+    background-color: rgb(153, 166, 246);
     justify-content: space-around;
     padding: 20px;
 }
@@ -21,7 +21,7 @@ a {
     gap: 150px;
     padding: 10px;
     margin: 10px;
-    /* justify-content: left; */
+    
 }
 
 .add_destination {
@@ -73,25 +73,70 @@ a {
     padding: 20px;
 }
 .button {
-    background-color: rgb(249, 215, 161);
+    background-color: rgb(153, 166, 246);
     border-radius: 5px;
     color: black;    
 }
 
 .button1 {
-    background-color: rgb(249, 215, 161);
+    background-color:rgb(153, 166, 246);
     border-radius: 5px;
     color: black;    
 }
 
 .button2 {
-    background-color: rgb(249, 215, 161);
+    background-color:white;
     border-radius: 5px;
     color: black;    
 }
 
 .button3 {
-    background-color: rgb(249, 215, 161);
+    background-color:white;
     border-radius: 5px;
     color: black;    
+}
+.button4 {
+    background-color:rgb(153, 166, 246);
+    border-radius: 5px;
+    color: black;    
+}
+.button5 {
+    background-color: rgb(153, 166, 246);
+    border-radius: 5px;
+    color: black;    
+}
+.div{
+    align-items: center;
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    padding: 20px; 
+}
+.button6 {
+    background-color:rgb(153, 166, 246);
+    border-radius: 5px;
+    color: black; 
+}
+.all {
+    
+    margin-left: 20px;
+    width: 100%;
+    overflow: hidden;
+    
+}
+.details {
+    
+    float: left;
+    width: 50%; 
+    
+    
+}
+.memories {
+     
+    float: right;
+    width: 50%;
 }
