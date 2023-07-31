@@ -3,7 +3,7 @@ from app import db
 from models.destination import Destination
 from models.user import User
 import os
-
+from models.comment import Comment
 
 
 destinations_blueprint = Blueprint('destinations', __name__)
@@ -20,8 +20,8 @@ def add_destination():
     user_id = request.form['user_id']
     country = request.form['country']
     city = request.form['city']
-    destination_date = request.form['date']
-    destination = Destination(user_id = user_id, country=country , city=city,date = destination_date)
+    date = request.form['date']
+    destination = Destination(user_id = user_id, country=country , city=city,date=date)
     db.session.add(destination)
     db.session.commit()
     return redirect('/destinations')
@@ -29,6 +29,7 @@ def add_destination():
 @destinations_blueprint.route('/destinations/<id>')
 def show_destination(id):
     destination = Destination.query.get(id)
+    print(destination.comments)
     user = User.query.get(destination.user_id)
     return render_template('destination.jinja', destination=destination, user=user)
 
@@ -43,11 +44,11 @@ def confirm_update(id):
     user_id = request.form['user_id']
     country = request.form['country']
     city = request.form['city']
-    destination_date = request.form['date']
+    date = request.form['date']
     destination = Destination.query.get(id)
     destination.country = country
     destination.city = city
-    destination.date = destination_date
+    destination.date = date
     destination.user_id = user_id
     db.session.commit()
     return redirect(f'/destinations/{destination.id}')
@@ -70,66 +71,38 @@ def add_new_user():
 
 comments = []
 
-@destinations_blueprint.route('/destinations/<id>')
-def show_comments():
-   return render_template('destination.jinja', comments=comments)
-
-@destinations_blueprint.route('/destinations/<id>/comment', methods=['POST'])
-def add_comment():
-    content = request.form['content']
-    comments.append(content)
-    db.session.add(content)
-    db.session.commit()
-    return redirect('/destinations/<id>')
-
-
-
-
-
-
-
-# ************************************************************************
-
-# @destinations_blueprint.route('/destinations/<id>', methods=['POST'])
-# def upload_form():
-#     db.session.add(upload_form)
-#     db.session.commit()
-#     return render_template('destination.jinja')
+@destinations_blueprint.route('/destinations/<id>/comments', methods=['POST'])
+def show_comments(id):
+   comment = request.form['comment']
+   comment = Comment(destination_id=id, comment=comment)
+   db.session.add(comment)
+   db.session.commit()
+   return redirect(f'/destinations/{id}')
+   # get the destination by id
+   # create the comment, using the class
+   # add the comment to the db
+   # redirect to destination page
     
 
-# @destinations_blueprint.route('/destinations/<id>', methods=['POST'])
-# def upload_picture():
-#     if 'picture' not in request.files:
-#         flash('No picture part in the request', 'error')
-#         db.session.add(upload_picture)
-#         db.session.commit()
-#         return redirect(url_for('/destinations'))
 
 
 
-#     file = request.files['picture']
-#     if file.filename == '':
-#         flash('No selected file', 'error')
-#         return redirect(url_for('upload_form'))
 
-   
-#     if file:
-#         filename = secure_filename(file.filename)
-#         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-#         flash('File uploaded successfully', 'success')
-#     else:
-#         flash('Invalid file', 'error')
 
-#     return redirect(url_for('upload_form'))
-   
-  
-# @destinations_blueprint.route('/destinations/<id>', methods=['POST'])
-# def get_uploaded_pictures():
-#     pictures = []
-#     for filename in os.listdir(app.config['UPLOAD_FOLDER']):
-#             if filename.lower().endswith(('.png', '.jpg', '.jpeg', '.gif')):
-#                 pictures.append(filename)
-#                 db.session.add(get_uploaded_pictures)
-#                 db.session.commit()
-#     return pictures
+
+# @destinations_blueprint.route('/destinations/<id>', methods=["POST"])
+# def add_comment():
+#     user_id = request.form['user_id']
+#     destination_id = request['destination_id']
+#     content = request.form['content']
+#     comments.append(content)
+#     destination = Destination(user_id = user_id, destination_id=destination_id)
+#     db.session.add(content)
+#     db.session.commit()
+#     return redirect('/destinations')
+
+
+
+
+
 

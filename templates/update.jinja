@@ -2,14 +2,14 @@
 
 {% block content %}
 
-<form action="/destinations/{{ destination.id }}{{ destination.counrty }}{{ destination.city }}{{ destination.date}}/update" method="post">
+<form action="/destinations/{{ destination.id }}/update" method="post">
         <select name="user_id">
             {% for user in users %}
                 <option value="{{ user.id }}">{{ user.username }}</option>
             {% endfor %}
         </select>
         <label for="country">Country</label>
-        <input type="text" name="country" id="country">
+        <input type="text" name="country" id="country" value={{destination.country}}>
         <label for="city">City</label>
         <input type="text" name="city" id="city">
         <label for="date">Date</label>

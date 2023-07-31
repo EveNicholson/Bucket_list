@@ -24,53 +24,21 @@
     <div class = "memories">
         <h3>Memories:</h3>
    
-        {% for comment in comments %}
-        <div>{{ comment }}</div>
-        {% endfor %}
+        
     
-    <form method="POST" action="/add_comment">
-        <textarea name="content" rows="4" cols="40"></textarea>
+    <form method="POST" action="/destinations/{{ destination.id }}/comments">
+        <textarea name="comment" rows="4" cols="40"></textarea>
         <br>
         <input class="button6"type="submit" value="Add Memories">
     </form>
-    </div>
-    </div>
-    {# <body>
-    <h3>Upload Pictures:</h3>
-    {% with messages = get_flashed_messages() %}
-    {% if messages %}
-    <ul class="messages">
-        {% for message in messages %}
-        <li>{{ message }}</li>
+    <ul>
+        {% for comment in destination.comments %}
+            <li>{{ comment.comment }}</li>
         {% endfor %}
     </ul>
-    {% endif %}
-    {% endwith %}
-    <form method="POST" action="/upload" enctype="multipart/form-data">
-        <input type="file" name="picture" accept="image/*">
-        <input type="submit" value="Upload">
-    </form>
-</body> #}
-
-{# <!DOCTYPE html>
-<html>
-<head>
-    <title>Uploaded Pictures</title>
-</head>
-<body>
-    <h1>Uploaded Pictures</h1>
-    {% with pictures = get_uploaded_pictures() %}
-    {% if pictures %}
-    <div class="picture-gallery">
-        {% for picture in pictures %}
-        <img src="{{ url_for('static', filename='uploads/' + picture) }}" alt="Uploaded Picture">
-        {% endfor %}
     </div>
-    {% else %}
-    <p>No pictures uploaded yet.</p>
-    {% endif %}
-    {% endwith %}
-</body>
-</html> #}
+    </div>
+
+
 
 {% endblock content %}
