@@ -79,32 +79,12 @@ a {
 }
 
 .button1 {
-    background-color:rgb(153, 166, 246);
-    border-radius: 5px;
-    color: black;    
-}
-
-.button2 {
     background-color:white;
     border-radius: 5px;
     color: black;    
 }
 
-.button3 {
-    background-color:white;
-    border-radius: 5px;
-    color: black;    
-}
-.button4 {
-    background-color:rgb(153, 166, 246);
-    border-radius: 5px;
-    color: black;    
-}
-.button5 {
-    background-color: rgb(153, 166, 246);
-    border-radius: 5px;
-    color: black;    
-}
+
 .div{
     align-items: center;
 }

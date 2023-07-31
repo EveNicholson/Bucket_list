@@ -24,7 +24,7 @@
                 <input type="text" name="username" id="username">
                 <label for="nationality">Nationality</label>
                 <input type="text" name="nationality" id="nationality">
-                <button class="button1" type="submit">Add User</button>
+                <button class="button" type="submit">Add User</button>
                 <img class="Zanzibar" src="/static/Zanzibar.jpg">
             </form>
         </div>
@@ -38,14 +38,19 @@
                     <ul>
                     <li><a href="/destinations/{{ destination.id }}">
                         <p class="destinations">{{ destination.users.username }}, {{ destination.country }}, {{ destination.date }}</p>
-                            <input type="checkbox" name="destination" id="destination">
-                            <button class="button2" type="submit">&#128140</button>
-                            <input type="checkbox" name="destination" id="destination">
-                            <button class="button3"type="submit">&#9971</button>
+                            <form action="/destinations/{{ destination.id }}/want_to_visit", method="post">
+                                <input type="checkbox" name="want_to_visit" id="destination" {% if destination.want_to_visit %}
+                                    checked
+                                {% endif %}>
+                                <button class="button1" type="submit">&#128140</button>
+                            </form>
+                            <form action="/destinations/{{ destination.id }}/visited", method="post">
+                            <input type="checkbox" name="visited" id="destination" {% if destination.visited  %}
+                                checked
+                            {% endif %}>
+                            <button class="button1"type="submit">&#9971</button>
+                            </form>
                     </a></li>
-                    
-                    
-
                     </ul>
             {% endfor %}
         </section>

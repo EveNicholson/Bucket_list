@@ -2,7 +2,7 @@
 
 {% block content %}
     <div class="all">
-   <div class="details">
+    <div class="details">
         <br>
          <p>Username: {{ user.username }}</p>
         <br>
@@ -12,13 +12,13 @@
         <br>
         <p>Date: {{ destination.date }}</p>
         <br>
-            <button><a class="button4" href="/destinations/{{ destination.id }}/update">Update details</a></button>
+            <button><a class="button" href="/destinations/{{ destination.id }}/update">Update details</a></button>
                 <form action="/destinations/{{ destination.id }}/delete" method="POST">
-        <br>
-            <button class="button5" type="submit">Delete</button>
-            </form>
-        <br>
-        <br>
+                <br>
+            <button class="button" type="submit">Delete</button>
+                </form>
+                <br>
+                <br>
     </div>
      
     <div class = "memories">
@@ -29,15 +29,20 @@
     <form method="POST" action="/destinations/{{ destination.id }}/comments">
         <textarea name="comment" rows="4" cols="40"></textarea>
         <br>
-        <input class="button6"type="submit" value="Add Memories">
+        <input class="button"type="submit" value="Add Memories">
     </form>
     <ul>
         {% for comment in destination.comments %}
             <li>{{ comment.comment }}</li>
         {% endfor %}
     </ul>
+
+        {# <form action="/destinations/{{ comment.id }}/delete" method="POST">
+                <br>
+            <button class="button" type="submit">Delete memories</button>
+                </form> #}
     </div>
-    </div>
+     </div>
 
 
 

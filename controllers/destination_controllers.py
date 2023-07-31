@@ -83,23 +83,33 @@ def show_comments(id):
    # add the comment to the db
    # redirect to destination page
     
-
-
-
-
-
-
-
-# @destinations_blueprint.route('/destinations/<id>', methods=["POST"])
-# def add_comment():
-#     user_id = request.form['user_id']
-#     destination_id = request['destination_id']
-#     content = request.form['content']
-#     comments.append(content)
-#     destination = Destination(user_id = user_id, destination_id=destination_id)
-#     db.session.add(content)
+# @destinations_blueprint.route('/comment/<id>/delete', methods=["POST"])
+# def delete_comment(id):
+#     comment = Comment.query.get(id)
+#     db.session.delete(comment)
 #     db.session.commit()
-#     return redirect('/destinations')
+#     return redirect('/comments')
+
+
+
+@destinations_blueprint.route('/destinations/<id>/want_to_visit', methods=['POST'])
+def want_to_visit(id):
+   want_to_visit = "want_to_visit" in request.form
+    # get the destination by id
+    # update the want_to_visit
+   destination = Destination.query.get(id)
+   destination.want_to_visit = want_to_visit
+   db.session.commit()
+   return redirect(f'/destinations/{id}')
+
+@destinations_blueprint.route('/destinations/<id>/visited', methods=['POST'])
+def visited(id):
+   visited = "visited" in request.form
+   destination = Destination.query.get(id)
+   destination.visited = visited
+   db.session.commit()
+   return redirect(f'/destinations/{id}')
+
 
 
 

@@ -10,3 +10,5 @@ class Destination(db.Model):
     date = db.Column(db.String(30))
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     comments = db.relationship('Comment', backref="destination")
+    visited = db.Column(db.Boolean, default=False)
+    want_to_visit = db.Column(db.Boolean, default=True)
