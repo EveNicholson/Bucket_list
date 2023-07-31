@@ -83,12 +83,12 @@ def show_comments(id):
    # add the comment to the db
    # redirect to destination page
     
-# @destinations_blueprint.route('/comment/<id>/delete', methods=["POST"])
-# def delete_comment(id):
-#     comment = Comment.query.get(id)
-#     db.session.delete(comment)
-#     db.session.commit()
-#     return redirect('/comments')
+@destinations_blueprint.route('/destinations/<destination_id>/comments/<comment_id>/delete', methods=["POST"])
+def delete_comment(destination_id, comment_id):
+    comment = Comment.query.get(comment_id)
+    db.session.delete(comment)
+    db.session.commit()
+    return redirect(f'/destinations/{destination_id}')
 
 
 
