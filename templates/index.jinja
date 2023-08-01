@@ -29,15 +29,26 @@
             </form>
         </div>
         
-        
-        
+
+        <section>
+        <form class="select_user" action="/users/destinations", method="post">
+            <label for="users">Select user:</label>
+            <select id="users" name="user_id">
+                {% for user in users %}
+                    <option value="{{ user.id }}">{{ user.username }}</option>
+                {% endfor %}
+            </select>
+            <input class="button"type="submit" value="Submit">
+        </form>
+
         <section class="destinations">
-            <h2 class="destinations_header">Find out more!</h2>
-            <h4> Want to visit &#128140 Visited &#9971 </h4>
+            
+            <h4 class="want"> Want to visit &#128140 Visited &#9971 </h4>
+            <br>
             {% for destination in destinations %}
-                    <ul>
+                    <ul >
                     <li><a href="/destinations/{{ destination.id }}">
-                        <p class="destinations">{{ destination.users.username }}, {{ destination.country }}, {{ destination.date }}</p>
+                        <p >{{ destination.users.username }}, {{ destination.country }}, {{ destination.date }}</p>
                             <form action="/destinations/{{ destination.id }}/want_to_visit", method="post">
                                 <input type="checkbox" name="want_to_visit" id="destination" {% if destination.want_to_visit %}
                                     checked

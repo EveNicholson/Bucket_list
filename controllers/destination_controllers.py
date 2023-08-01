@@ -8,6 +8,18 @@ from models.comment import Comment
 
 destinations_blueprint = Blueprint('destinations', __name__)
 
+@destinations_blueprint.route('/users/destinations', methods=['POST'])
+def user_destinations():
+    user_id = request.form['user_id']
+    users = User.query.all()
+    user = User.query.get(user_id)
+    
+    return render_template('index.jinja', destinations=user.destinations, users=users)
+
+# /users/<id>/destinations
+# get all users
+# get the user by id
+#   return render_template('index.jinja', destinations=user.destinations, users=users)
 
 @destinations_blueprint.route('/destinations')
 def destinations():
@@ -78,11 +90,7 @@ def show_comments(id):
    db.session.add(comment)
    db.session.commit()
    return redirect(f'/destinations/{id}')
-   # get the destination by id
-   # create the comment, using the class
-   # add the comment to the db
-   # redirect to destination page
-    
+
 @destinations_blueprint.route('/destinations/<destination_id>/comments/<comment_id>/delete', methods=["POST"])
 def delete_comment(destination_id, comment_id):
     comment = Comment.query.get(comment_id)
@@ -91,12 +99,9 @@ def delete_comment(destination_id, comment_id):
     return redirect(f'/destinations/{destination_id}')
 
 
-
 @destinations_blueprint.route('/destinations/<id>/want_to_visit', methods=['POST'])
 def want_to_visit(id):
    want_to_visit = "want_to_visit" in request.form
-    # get the destination by id
-    # update the want_to_visit
    destination = Destination.query.get(id)
    destination.want_to_visit = want_to_visit
    db.session.commit()
