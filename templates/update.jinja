@@ -3,19 +3,19 @@
 {% block content %}
 
 <form action="/destinations/{{ destination.id }}/update" method="post">
-        <select name="user_id">
-            {% for user in users %}
-                <option value="{{ user.id }}">{{ user.username }}</option>
-            {% endfor %}
-        </select>
-        <label for="country">Country</label>
-        <input type="text" name="country" id="country" value={{destination.country}}>
-        <label for="city">City</label>
-        <input type="text" name="city" id="city" value={{destination.city}}>
-        <label for="date">Date</label>
-        <input type="text" name="date" id="date" value={{destination.date}}>
-        <button type="submit">Update destination</button>
-    </form>
+    <select name="user_id">
+        {% for user in users %}
+            <option value="{{ user.id }}">{{ user.username }}</option>
+        {% endfor %}
+    </select>
+    <label for="country">Country</label>
+    <input type="text" name="country" id="country" value={{destination.country}}>
+    <label for="city">City</label>
+    <input type="text" name="city" id="city" value={{destination.city}}>
+    <label for="date">Date</label>
+    <input type="text" name="date" id="date" value={{destination.date}}>
+    <button type="submit">Update destination</button>
+</form>
 
     
 {% endblock content %}

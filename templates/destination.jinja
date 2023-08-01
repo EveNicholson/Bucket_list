@@ -4,7 +4,7 @@
     <div class="all">
     <div class="details">
         <br>
-         <p>Username: {{ user.username }}</p>
+        <p>Username: {{ user.username }}</p>
         <br>
         <p>Country: {{ destination.country }}</p>
         <br>
@@ -13,19 +13,12 @@
         <p>Date: {{ destination.date }}</p>
         <br>
             <button><a class="button" href="/destinations/{{ destination.id }}/update">Update details</a></button>
-                <form action="/destinations/{{ destination.id }}/delete" method="POST">
-                <br>
+                <form action="/destinations/{{ destination.id }}/delete" method="POST"></form>
             <button class="button" type="submit">Delete</button>
-                </form>
-                <br>
-                <br>
+        <br>
     </div>
-     
-    <div class = "memories">
+     <div class = "memories">
         <h3>Memories:</h3>
-   
-        
-    
     <form method="POST" action="/destinations/{{ destination.id }}/comments">
         <textarea name="comment" rows="4" cols="40"></textarea>
         <br>
@@ -33,17 +26,10 @@
     </form>
     <ul>
         {% for comment in destination.comments %}
-            <li>{{ comment.comment }} <form action="/destinations/{{ destination.id }}/comments/{{ comment.id }}/delete" method="POST">
-                <br>
-            <button class="button" type="submit">Delete memories</button>
-                </form></li>
+            <li>{{ comment.comment }} <form action="/destinations/{{ destination.id }}/comments/{{ comment.id }}/delete" method="POST">  
+            <button class="button" type="submit">Delete memories</button></form>   
         {% endfor %}
+            </li>
     </ul>
-
-        
     </div>
-     </div>
-
-
-
-{% endblock content %}
+        {% endblock content %}
