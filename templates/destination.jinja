@@ -18,16 +18,16 @@
         <br>
     </div>
      <div class = "memories">
-        <h3>Memories:</h3>
+        <h3>Memories/Comments:</h3>
     <form method="POST" action="/destinations/{{ destination.id }}/comments">
         <textarea name="comment" rows="4" cols="40"></textarea>
         <br>
-        <input class="button"type="submit" value="Add Memories">
+        <input class="button"type="submit" value="Add Memories/Comments">
     </form>
     <ul>
         {% for comment in destination.comments %}
             <li>{{ comment.comment }} <form action="/destinations/{{ destination.id }}/comments/{{ comment.id }}/delete" method="POST">  
-            <button class="button" type="submit">Delete memories</button></form>   
+            <button class="button" type="submit">Delete memories/comments</button></form>   
         {% endfor %}
             </li>
     </ul>
