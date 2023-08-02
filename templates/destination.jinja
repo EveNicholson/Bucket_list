@@ -12,9 +12,9 @@
         <br>
         <p>Date: {{ destination.date }}</p>
         <br>
-            <button><a class="button" href="/destinations/{{ destination.id }}/update">Update details</a></button>
-                <form action="/destinations/{{ destination.id }}/delete" method="POST"></form>
-            <button class="button" type="submit">Delete</button>
+            <button class="button"><a href="/destinations/{{ destination.id }}/update">Update details</a></button>
+                <form action="/destinations/{{ destination.id }}/delete" method="POST">
+            <button class="button" type="submit">Delete</button></form>
         <br>
     </div>
      <div class = "memories">

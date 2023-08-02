@@ -16,10 +16,6 @@ def user_destinations():
     
     return render_template('index.jinja', destinations=user.destinations, users=users)
 
-# /users/<id>/destinations
-# get all users
-# get the user by id
-#   return render_template('index.jinja', destinations=user.destinations, users=users)
 
 @destinations_blueprint.route('/destinations')
 def destinations():
